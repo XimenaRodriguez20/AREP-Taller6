@@ -1,0 +1,3 @@
+org\arep\Mongodb\LogService.class
+org\arep\Mongodb\MongoUtil.class
+org\arep\SparkWebServer.class
