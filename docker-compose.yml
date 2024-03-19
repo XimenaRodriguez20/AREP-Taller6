@@ -2,6 +2,33 @@ version: '2'
 
 
 services:
+  service1:
+    build:
+      context: .
+      dockerfile: DockerfileLs
+    container_name: service1
+    environment:
+      - PORT=35001
+    ports:
+      - "35001:35001"
+  service2:
+      build:
+        context: .
+        dockerfile: DockerfileLs
+      container_name: service2
+      environment:
+        - PORT=35002
+      ports:
+        - "35002:35002"
+  service3:
+      build:
+        context: .
+        dockerfile: DockerfileLs
+      container_name: service3
+      environment:
+        - PORT=35003
+      ports:
+        - "35003:35003"
   web:
     build:
       context: .
