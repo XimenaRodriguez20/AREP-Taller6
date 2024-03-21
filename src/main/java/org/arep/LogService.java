@@ -4,10 +4,6 @@ import com.mongodb.client.MongoDatabase;
 import org.arep.Mongodb.LogController;
 import org.arep.Mongodb.MongoUtil;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 import static spark.Spark.*;
 
 public class LogService {

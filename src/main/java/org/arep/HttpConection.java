@@ -43,7 +43,7 @@ public class HttpConection {
             in.close();
 
             // print result
-            System.out.println(response.toString());
+            System.out.println(response);
         } else {
             System.out.println("GET request not worked");
         }

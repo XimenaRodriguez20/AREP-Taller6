@@ -6,7 +6,7 @@ function loadGetMsg() {
       createTableFromData(JSON.parse(this.responseText));
     }
   };
-  xhttp.open("GET", "/apiclient?msg=" + msg, true);
+  xhttp.open("GET", "http://localhost:8080/apiclient?msg=" + msg, true);
   xhttp.send();
 }
 
