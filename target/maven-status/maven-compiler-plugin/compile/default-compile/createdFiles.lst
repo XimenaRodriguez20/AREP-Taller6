@@ -1,5 +1,0 @@
-org\arep\Mongodb\MongoUtil.class
-org\arep\LogService.class
-org\arep\Mongodb\LogController.class
-org\arep\HttpConection.class
-org\arep\SparkWebServer.class
