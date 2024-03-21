@@ -38,7 +38,9 @@
 
 prueba
 
-![image](https://github.com/XimenaRodriguez20/AREP-Taller6/assets/123812926/71fa8556-ad65-4c13-a236-e29d453045d1)
+![image](https://github.com/XimenaRodriguez20/AREP-Taller6/assets/123812926/b168d3a2-33fa-4f7a-bbf9-efc475297b11)
 
-![image](https://github.com/XimenaRodriguez20/AREP-Taller6/assets/123812926/e08f518f-d627-431e-ac58-96cc2ca123da)
+![image](https://github.com/XimenaRodriguez20/AREP-Taller6/assets/123812926/bcc55604-f195-4c7c-a7a0-b9ed0d3eec4f)
+
+
 
