@@ -15,6 +15,7 @@ public class SparkWebServer {
             "http://service1:35001/apiservice?msg=",
             "http://service2:35002/apiservice?msg=",
             "http://service3:35003/apiservice?msg=");
+    //private static final List<String> urls = List.of("http://localhost:35001/apiservice?msg=");
     private static int contLogs = 0;
     public static void main(String[] args) {
         port(getPort());

@@ -4,6 +4,7 @@ import com.mongodb.client.MongoDatabase;
 import org.arep.Mongodb.LogController;
 import org.arep.Mongodb.MongoUtil;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -26,16 +27,15 @@ public class LogService {
             String x = req.queryParams("msg");
             res.type("application/json");
             logControl.addLog(x);
-            return /*"yes" ;*/ logControl.getLogs();
+            return logControl.getLogsString();
         });
-
     }
 
     public static int getPort() {
         if (System.getenv("PORT") != null) {
             return Integer.parseInt(System.getenv("PORT"));
         }
-        return 35004;
+        return 35001;
     }
 
 

@@ -11,11 +11,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LogController {
-
     private final MongoCollection<Document> logsFile;
 
     public LogController(MongoDatabase base) {
         logsFile = base.getCollection(MongoUtil.BASE_NAME);
+        logsFile.find().forEach(i -> logsFile.deleteOne(i));
     }
 
     public boolean addLog (String logName) {
@@ -29,19 +29,20 @@ public class LogController {
         }
     }
 
-    /*
-
-    public ArrayList<Document> getLogs() {
-        FindIterable<Document> allLogs = logsFile.find();
-        ArrayList<Document> logsList = new ArrayList<>();
-        allLogs.forEach(logsList::add);
-        return logsList;
-    }
-     */
     public List<Document> getLogs() {
         FindIterable<Document> allLogs = logsFile.find().sort(Sorts.descending("Hour")).limit(10);
         List<Document> logsList = new ArrayList<>();
         allLogs.forEach(logsList::add);
+        logsList.forEach(System.out::println);
+
         return logsList;
+    }
+
+    public List<String> getLogsString() {
+        List<Document> logsList = getLogs();
+        List<String> respuesta = new ArrayList<>();
+        logsList.forEach(i -> respuesta.add("{\"Log\":\"" + i.get("Log") + "\", \"Hour\":\"" + i.get("Hour") + "\"}"));
+
+        return respuesta;
     }
 }
