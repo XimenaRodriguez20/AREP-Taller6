@@ -25,7 +25,7 @@ public class SparkWebServer {
         get("apiclient", (req, res) -> {
             String mensaje = req.queryParams("msg");
             res.type("application/json");
-            URL path = getLogServiceUrl(mensaje);
+            URL path = RoundRobin(mensaje);
             return /*"yes" ;*/ HttpConection.ResponseRequest(path);
         });
 
@@ -38,7 +38,8 @@ public class SparkWebServer {
         return 8080;
     }
 
-    private static URL getLogServiceUrl(String mensaje) throws MalformedURLException {
+
+    private static URL RoundRobin(String mensaje) throws MalformedURLException {
         // Get the URL for the current index
         String getUrl = urls.get(contLogs);
         // Increment the index and wrap it around if it reaches the end of the list
