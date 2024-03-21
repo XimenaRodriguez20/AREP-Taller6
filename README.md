@@ -26,24 +26,34 @@ El proposito de este proyecto consiste en manejar y distribuir diferentes servic
 
 Para este proyecto utilizaremos la siguiente arquitectura:
 
+![image](https://github.com/XimenaRodriguez20/AREP-Taller6/assets/123812926/fe34b48d-2f4c-46e9-a2b0-96118c1950fa)
+
 ### LogService
-    Es un servicio REST que recibe un texto, además se encarga de iniciar la base datos y enviarle la respectiva informacion que el usuario ingrese, por ultimo devuelve los registros que se encuentren en la base de datos.
+Es un servicio REST que recibe un texto, además se encarga de iniciar la base datos y enviarle la respectiva informacion que el usuario ingrese, por ultimo devuelve los registros que se encuentren en la base de datos.
 ### RoudRobin
-    En este caso RoudRobin se implementara como un metodo en la clase SparkWebServer quien se encargara de recibir el mensaje que el usuario ingrese, éste se redireccionara a una api que se encargara de la conexion con la base de datos y el metodo RoundRobin será un balanceaador de cargas, es decir se encargara de distribuir el proceso en las tres instancias que se tienen.  
+En este caso RoudRobin se implementara como un metodo en la clase SparkWebServer quien se encargara de recibir el mensaje que el usuario ingrese, éste se redireccionara a una api que se encargara de la conexion con la base de datos y el metodo RoundRobin será un balanceaador de cargas, es decir se encargara de distribuir el proceso en las tres instancias que se tienen.  
 ### MongoDB
-    Es una instancia que correra en un contenerdor independiente en docker. MongoDb es una base de datos no relacional que se encargara de guardar el mensaje que el usuario proporcione y asi mismo su fecha y hora.
+Es una instancia que correra en un contenerdor independiente en docker. MongoDb es una base de datos no relacional que se encargara de guardar el mensaje que el usuario proporcione y asi mismo su fecha y hora.
 
 ## Diseño
 
 Las clases que se implementaron son las siguientes:
 
+![image](https://github.com/XimenaRodriguez20/AREP-Taller6/assets/123812926/8b7574f8-73bd-46c4-87b1-3b4881db618e)
+
 * HttpConection: Hace la conexión entre apis de java.
 * LogService: Inicia la base de datos, además se encarga de enviarle a la base de datos la información que le llego del api que consume el cliente y por ultimo obtiene los registros que se encuentran de la base de datos.
+  
+![image](https://github.com/XimenaRodriguez20/AREP-Taller6/assets/123812926/4494d7ce-806b-4f26-9541-563cae74fead)
+
 * MongoUtil: Crea la base de datos
 * LogController: Administra la base de datos es decir, añade y devuelve logs.
-* SparKWebServer: Recibi  los datos del cliente y los pasa al api que se encarga de conectar con la base de datos, ademas contiene el metodo rounRobin para distribuir los  procesos en los tres servicios que se tienen.
-    
+  
+![image](https://github.com/XimenaRodriguez20/AREP-Taller6/assets/123812926/a836fd2e-6450-4d46-bc63-605d6ef2e202)
 
+* SparKWebServer: Recibi  los datos del cliente y los pasa al api que se encarga de conectar con la base de datos, ademas contiene el metodo rounRobin para distribuir los  procesos en los tres servicios que se tienen.
+
+![image](https://github.com/XimenaRodriguez20/AREP-Taller6/assets/123812926/a5c63700-77d2-47db-99aa-3163799fd4ad)
 
 ## Empezando
 
@@ -105,10 +115,11 @@ Las clases que se implementaron son las siguientes:
     ~~~
 
 * Ingresamos alguna palabra para comprobar que se esten guardando con su respectiva fecha y que solo se esten mostrando 10 registros, cabe aclarar que apenas se inicia el proyecto se eliminaran los resgistros previos:
+  
+![WhatsApp Image 2024-03-21 at 01 38 19](https://github.com/XimenaRodriguez20/AREP-Taller6/assets/123812926/e3c5bdc9-cff3-445c-97dc-3d60ac9788a2)
+![WhatsApp Image 2024-03-21 at 01 37 38](https://github.com/XimenaRodriguez20/AREP-Taller6/assets/123812926/0476afaf-7b73-4569-9348-d217b1fc6d55)
+![WhatsApp Image 2024-03-21 at 01 34 11](https://github.com/XimenaRodriguez20/AREP-Taller6/assets/123812926/ccba1bf7-1e64-46eb-8a15-d2c85e06197e)
 
-![image](https://github.com/XimenaRodriguez20/AREP-Taller6/assets/123812926/b168d3a2-33fa-4f7a-bbf9-efc475297b11)
-
-![image](https://github.com/XimenaRodriguez20/AREP-Taller6/assets/123812926/bcc55604-f195-4c7c-a7a0-b9ed0d3eec4f)
 
 ## Prueba y despliegue con AWS
 
